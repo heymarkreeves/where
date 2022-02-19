@@ -9,10 +9,20 @@
 
 ## Development
 
+### Usage
+
+Use `pip3` to install `bs4`, `json`, `dotenv`, `mysql.connector`, `requests`.
+
+Database & tables need to be created, with unique indexes across all fields.
+
+Run `python3 trader_joes.py`.
+
+Run `python3 bookstores.py`.
+
 ### To Do
 
-* [] Walk scores
-* [] Co-op grocery stores https://www.localharvest.org/getmap.jsp?zip=05602
+* [ ] Walk scores
+* [ ] Co-op grocery stores https://www.localharvest.org/getmap.jsp?zip=05602
 
 ### Resources
 
