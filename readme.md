@@ -15,6 +15,8 @@ Use `pip3` to install `bs4`, `json`, `dotenv`, `mysql.connector`, `requests`.
 
 Database & tables need to be created, with unique indexes across all fields.
 
+Copy `.env.example` to `.env` and add database credentials.
+
 Run `python3 trader_joes.py`.
 
 Run `python3 bookstores.py`.
