@@ -34,6 +34,7 @@ for state in soup.find_all('a', class_='listitem'):
             latitude = soup.select_one('meta[property="place:location:latitude"]')['content']
             longitude = soup.select_one('meta[property="place:location:longitude"]')['content']
             title = soup.select_one('meta[property="og:title"]')['content']
+            address = soup.select_one('meta[property="business:contact_data:street_address"]')['content']
             zipcode = soup.select_one('meta[property="business:contact_data:postal_code"]')['content']
 
             print(latitude)
@@ -42,10 +43,10 @@ for state in soup.find_all('a', class_='listitem'):
             print(zipcode)
 
             insert_store_query = f"""
-INSERT INTO trader_joes (name, zipcode, latitude, longitude)
+INSERT INTO trader_joes (name, address, zipcode, latitude, longitude)
 VALUES
-    ("{title}", "{zipcode}", "{latitude}", "{longitude}")
-ON DUPLICATE KEY UPDATE name="{title}", zipcode="{zipcode}", latitude="{latitude}", longitude="{longitude}"
+    ("{title}", "{address}", "{zipcode}", "{latitude}", "{longitude}")
+ON DUPLICATE KEY UPDATE name="{title}", address="{address}", zipcode="{zipcode}", latitude="{latitude}", longitude="{longitude}"
 """
             with connection.cursor() as cursor:
                 cursor.execute(insert_store_query)
