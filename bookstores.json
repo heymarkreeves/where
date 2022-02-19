@@ -1,0 +1,966 @@
+/*
+ * Zip code search uses: https: //www.indiebound.org/indie-store-finder?q=05602
+ * Returns a list of locations within a 100 mile radius
+
+ * Zip codes are in formatted content, but each location has lat & long, city & state.
+ * Might be enough to pass to WalkScore API,
+ * which requires address in addition to lat / long.
+ */
+
+{
+    "path":
+    {
+        "baseUrl": "/",
+        "scriptPath": null,
+        "pathPrefix": "",
+        "currentPath": "indie-bookstore-finder",
+        "currentPathIsAdmin": false,
+        "isFront": false,
+        "currentLanguage": "en",
+        "currentQuery":
+        {
+            "q": "05602"
+        }
+    },
+    "pluralDelimiter": "\u0003",
+    "suppressDeprecationErrors": true,
+    "google_analytics":
+    {
+        "trackOutbound": true,
+        "trackMailto": true,
+        "trackDownload": true,
+        "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip",
+        "trackDomainMode": 2,
+        "trackCrossDomains": [
+            "www.indiebound.org",
+            "indiebound.addlibra.com"
+        ]
+    },
+    "eu_cookie_compliance":
+    {
+        "cookie_policy_version": "1.0.0",
+        "popup_enabled": true,
+        "popup_agreed_enabled": false,
+        "popup_hide_agreed": false,
+        "popup_clicking_confirmation": false,
+        "popup_scrolling_confirmation": false,
+        "popup_html_info": "<div role=\"alertdialog\" aria-labelledby=\"popup-text\"  class=\"eu-cookie-compliance-banner eu-cookie-compliance-banner-info eu-cookie-compliance-banner--default\">\n  <div class=\"popup-content info eu-cookie-compliance-content\">\n    <div id=\"popup-text\" class=\"eu-cookie-compliance-message\">\n      <h2>IndieBound.org uses cookies to enhance your experience on our site, analyze site usage, and assist in our marketing efforts. By clicking Accept, you agree to the storing of cookies on your device. <a href=\"/cookies-policy\">View our Cookie Policy.</a></h2>\n\n              <button type=\"button\" class=\"find-more-button eu-cookie-compliance-more-button\">Give me more info</button>\n          </div>\n\n    \n    <div id=\"popup-buttons\" class=\"eu-cookie-compliance-buttons\">\n      <button type=\"button\" class=\"agree-button eu-cookie-compliance-default-button\">Accept all Cookies</button>\n          </div>\n  </div>\n</div>",
+        "use_mobile_message": false,
+        "mobile_popup_html_info": "<div role=\"alertdialog\" aria-labelledby=\"popup-text\"  class=\"eu-cookie-compliance-banner eu-cookie-compliance-banner-info eu-cookie-compliance-banner--default\">\n  <div class=\"popup-content info eu-cookie-compliance-content\">\n    <div id=\"popup-text\" class=\"eu-cookie-compliance-message\">\n      \n              <button type=\"button\" class=\"find-more-button eu-cookie-compliance-more-button\">Give me more info</button>\n          </div>\n\n    \n    <div id=\"popup-buttons\" class=\"eu-cookie-compliance-buttons\">\n      <button type=\"button\" class=\"agree-button eu-cookie-compliance-default-button\">Accept all Cookies</button>\n          </div>\n  </div>\n</div>",
+        "mobile_breakpoint": 768,
+        "popup_html_agreed": false,
+        "popup_use_bare_css": false,
+        "popup_height": "auto",
+        "popup_width": "100%",
+        "popup_delay": 1000,
+        "popup_link": "/cookies-policy",
+        "popup_link_new_window": true,
+        "popup_position": false,
+        "fixed_top_position": true,
+        "popup_language": "en",
+        "store_consent": false,
+        "better_support_for_screen_readers": false,
+        "cookie_name": "",
+        "reload_page": false,
+        "domain": "",
+        "domain_all_sites": false,
+        "popup_eu_only_js": false,
+        "cookie_lifetime": 100,
+        "cookie_session": 0,
+        "set_cookie_session_zero_on_disagree": 0,
+        "disagree_do_not_show_popup": false,
+        "method": "default",
+        "automatic_cookies_removal": true,
+        "allowed_cookies": "",
+        "withdraw_markup": "<button type=\"button\" class=\"eu-cookie-withdraw-tab\">Privacy settings</button>\n<div role=\"alertdialog\" aria-labelledby=\"popup-text\" class=\"eu-cookie-withdraw-banner\">\n  <div class=\"popup-content info eu-cookie-compliance-content\">\n    <div id=\"popup-text\" class=\"eu-cookie-compliance-message\">\n      <h2>We use cookies on this site to enhance your user experience</h2>\n<p>You have given your consent for us to set cookies.</p>\n\n    </div>\n    <div id=\"popup-buttons\" class=\"eu-cookie-compliance-buttons\">\n      <button type=\"button\" class=\"eu-cookie-withdraw-button\">Withdraw consent</button>\n    </div>\n  </div>\n</div>",
+        "withdraw_enabled": false,
+        "reload_options": 0,
+        "reload_routes_list": "",
+        "withdraw_button_on_info_popup": false,
+        "cookie_categories": [],
+        "cookie_categories_details": [],
+        "enable_save_preferences_button": true,
+        "cookie_value_disagreed": "0",
+        "cookie_value_agreed_show_thank_you": "1",
+        "cookie_value_agreed": "2",
+        "containing_element": "body",
+        "settings_tab_enabled": false,
+        "open_by_default": true
+    },
+    "visible_markers": [
+    {
+        "lat": 44.259823,
+        "lng": -72.575158,
+        "marker_title": "Bear Pond Books (Montpelier)",
+        "city": "Montpelier",
+        "state": "VT",
+        "distance": 2,
+        "infowindow": "<strong>Bear Pond Books (Montpelier)</strong><br>\n77 Main St<br>\nMontpelier, VT 05602<br>\n <a href=\"http://www.bearpondbooks.com\" target=\"_blank\">http://www.bearpondbooks.com</a><br>\n2 miles"
+    },
+    {
+        "lat": 44.199463,
+        "lng": -72.504318,
+        "marker_title": "Next Chapter Bookstore",
+        "city": "Barre",
+        "state": "VT",
+        "distance": 7.4,
+        "infowindow": "<strong>Next Chapter Bookstore</strong><br>\n248 North Main St Suite 2<br>\nBarre, VT 05641<br>\n <a href=\"https://nextchapterbooksvt.indielite.org/\" target=\"_blank\">https://nextchapterbooksvt.indielite.org/</a><br>\n7.4 miles"
+    },
+    {
+        "lat": 44.3381599,
+        "lng": -72.7551569,
+        "marker_title": "Bridgeside Books",
+        "city": "Waterbury",
+        "state": "VT",
+        "distance": 8.4,
+        "infowindow": "<strong>Bridgeside Books</strong><br>\n29 Stowe St<br>\nWaterbury, VT 05676<br>\n <a href=\"http://www.bridgesidebooks.com\" target=\"_blank\">http://www.bridgesidebooks.com</a><br>\n8.4 miles"
+    },
+    {
+        "lat": 44.4651631,
+        "lng": -72.6866982,
+        "marker_title": "Bear Pond Books (Stowe)",
+        "city": "Stowe",
+        "state": "VT",
+        "distance": 13.7,
+        "infowindow": "<strong>Bear Pond Books (Stowe)</strong><br>\n38 Main Street<br>\nStowe, VT 05672<br>\n <a href=\"http://www.stowebooks.com/\" target=\"_blank\">http://www.stowebooks.com/</a><br>\n13.7 miles"
+    },
+    {
+        "lat": 44.5040059,
+        "lng": -72.366985,
+        "marker_title": "The Galaxy Bookshop",
+        "city": "Hardwick",
+        "state": "VT",
+        "distance": 19.8,
+        "infowindow": "<strong>The Galaxy Bookshop</strong><br>\n41 S Main St<br>\nHardwick, VT 05843<br>\n <a href=\"http://www.galaxybookshop.com\" target=\"_blank\">http://www.galaxybookshop.com</a><br>\n19.8 miles"
+    },
+    {
+        "lat": 44.6355692,
+        "lng": -72.6792038,
+        "marker_title": "Ebenezer Books",
+        "city": "Johnson",
+        "state": "VT",
+        "distance": 25.2,
+        "infowindow": "<strong>Ebenezer Books</strong><br>\n2 Lower Main W<br>\nJohnson, VT 05655<br>\n25.2 miles"
+    },
+    {
+        "lat": 44.5080973,
+        "lng": -73.0856416,
+        "marker_title": "Phoenix Books (VT)",
+        "city": "Essex Junction",
+        "state": "VT",
+        "distance": 28.5,
+        "infowindow": "<strong>Phoenix Books (VT)</strong><br>\n2 Carmichael St<br>\nEssex Junction, VT 05452<br>\n <a href=\"http://www.phoenixbooks.biz\" target=\"_blank\">http://www.phoenixbooks.biz</a><br>\n28.5 miles"
+    },
+    {
+        "lat": 43.9943895,
+        "lng": -72.1283061,
+        "marker_title": "Star Cat Books",
+        "city": "Bradford",
+        "state": "VT",
+        "distance": 30.7,
+        "infowindow": "<strong>Star Cat Books</strong><br>\n157 Main St, P.O. Box 924<br>\nBradford, VT 05033<br>\n <a href=\"http://starcatbooks.com/\" target=\"_blank\">http://starcatbooks.com/</a><br>\n30.7 miles"
+    },
+    {
+        "lat": 44.4182792,
+        "lng": -72.0154827,
+        "marker_title": "Boxcar & Caboose",
+        "city": "St. Johnsbury",
+        "state": "VT",
+        "distance": 31,
+        "infowindow": "<strong>Boxcar &amp; Caboose</strong><br>\n394 Railroad St Unit 2<br>\nSt. Johnsbury, VT 05819<br>\n <a href=\"http://boxcxarandcaboose.com/\" target=\"_blank\">http://boxcxarandcaboose.com/</a><br>\n31 miles"
+    },
+    {
+        "lat": 44.3810436,
+        "lng": -73.2269734,
+        "marker_title": "The Flying Pig Bookstore",
+        "city": "Shelburne",
+        "state": "VT",
+        "distance": 31.4,
+        "infowindow": "<strong>The Flying Pig Bookstore</strong><br>\n5247 Shelburne Rd Ste 102<br>\nShelburne, VT 05482<br>\n <a href=\"http://www.flyingpigbooks.com\" target=\"_blank\">http://www.flyingpigbooks.com</a><br>\n31.4 miles"
+    },
+    {
+        "lat": 44.478233,
+        "lng": -73.211766,
+        "marker_title": "Phoenix Books Burlington",
+        "city": "Burlington",
+        "state": "VT",
+        "distance": 32.9,
+        "infowindow": "<strong>Phoenix Books Burlington</strong><br>\n191 Bank St<br>\nBurlington, VT 05401<br>\n32.9 miles"
+    },
+    {
+        "lat": 44.4800929,
+        "lng": -73.212601,
+        "marker_title": "Crow Bookshop",
+        "city": "Burlington",
+        "state": "VT",
+        "distance": 33,
+        "infowindow": "<strong>Crow Bookshop</strong><br>\n14 Church St<br>\nBurlington, VT 05401<br>\n <a href=\"http://www.crowbooks.com\" target=\"_blank\">http://www.crowbooks.com</a><br>\n33 miles"
+    },
+    {
+        "lat": 44.0139845,
+        "lng": -73.1685559,
+        "marker_title": "Vermont Book Shop",
+        "city": "Middlebury",
+        "state": "VT",
+        "distance": 33.1,
+        "infowindow": "<strong>Vermont Book Shop</strong><br>\n38 Main St<br>\nMiddlebury, VT 05753<br>\n <a href=\"http://www.vermontbookshop.com\" target=\"_blank\">http://www.vermontbookshop.com</a><br>\n33.1 miles"
+    },
+    {
+        "lat": 44.5343816,
+        "lng": -72.0030797,
+        "marker_title": "Green Mountain Books & Prints",
+        "city": "Lyndonville",
+        "state": "VT",
+        "distance": 34.9,
+        "infowindow": "<strong>Green Mountain Books &amp; Prints</strong><br>\n1055 Broad St<br>\nLyndonville, VT 05851<br>\n <a href=\"http://www.greenmtnbooks.com/\" target=\"_blank\">http://www.greenmtnbooks.com/</a><br>\n34.9 miles"
+    },
+    {
+        "lat": 43.7996171,
+        "lng": -73.0900393,
+        "marker_title": "The Bookstore (VT)",
+        "city": "Brandon",
+        "state": "VT",
+        "distance": 40.6,
+        "infowindow": "<strong>The Bookstore (VT)</strong><br>\n8 Conant Square<br>\nBrandon, VT 05733<br>\n <a href=\"https://thebookstorevt.indielite.org/\" target=\"_blank\">https://thebookstorevt.indielite.org/</a><br>\n40.6 miles"
+    },
+    {
+        "lat": 44.30655,
+        "lng": -71.7732789,
+        "marker_title": "Little Village Toy and Book Shop",
+        "city": "Littleton",
+        "state": "NH",
+        "distance": 41.4,
+        "infowindow": "<strong>Little Village Toy and Book Shop</strong><br>\n81B Main St<br>\nLittleton, NH 03561<br>\n <a href=\"http://www.littlevillagetoy.com/\" target=\"_blank\">http://www.littlevillagetoy.com/</a><br>\n41.4 miles"
+    },
+    {
+        "lat": 43.7134935,
+        "lng": -72.308533,
+        "marker_title": "Norwich Bookstore",
+        "city": "Norwich",
+        "state": "VT",
+        "distance": 41.6,
+        "infowindow": "<strong>Norwich Bookstore</strong><br>\n291 Main St<br>\nNorwich, VT 05055<br>\n <a href=\"http://www.norwichbookstore.com\" target=\"_blank\">http://www.norwichbookstore.com</a><br>\n41.6 miles"
+    },
+    {
+        "lat": 43.7015076,
+        "lng": -72.2899735,
+        "marker_title": "Still North Books & Bar",
+        "city": "Hanover",
+        "state": "NH",
+        "distance": 42.7,
+        "infowindow": "<strong>Still North Books &amp; Bar</strong><br>\n3 Allen Street<br>\nHanover, NH 03755<br>\n <a href=\"https://www.stillnorthbooks.com/\" target=\"_blank\">https://www.stillnorthbooks.com/</a><br>\n42.7 miles"
+    },
+    {
+        "lat": 44.81259,
+        "lng": -73.08335,
+        "marker_title": "The Eloquent Page Bookstore",
+        "city": "St. Albans",
+        "state": "VT",
+        "distance": 43.9,
+        "infowindow": "<strong>The Eloquent Page Bookstore</strong><br>\n70 N. Main Street<br>\nSt. Albans, VT 05478<br>\n <a href=\"https://www.theeloquentpage.com\" target=\"_blank\">https://www.theeloquentpage.com</a><br>\n43.9 miles"
+    },
+    {
+        "lat": 43.6255997,
+        "lng": -72.5175678,
+        "marker_title": "The Yankee Bookshop",
+        "city": "Woodstock",
+        "state": "VT",
+        "distance": 45.1,
+        "infowindow": "<strong>The Yankee Bookshop</strong><br>\n12 Central St<br>\nWoodstock, VT 05091<br>\n <a href=\"http://www.yankeebookshop.com\" target=\"_blank\">http://www.yankeebookshop.com</a><br>\n45.1 miles"
+    },
+    {
+        "lat": 43.60633,
+        "lng": -72.979289,
+        "marker_title": "Phoenix Books Rutland",
+        "city": "Rutland",
+        "state": "VT",
+        "distance": 49.7,
+        "infowindow": "<strong>Phoenix Books Rutland</strong><br>\n2 Center St Ste 1<br>\nRutland, VT 05701<br>\n <a href=\"http://www.phoenixbooks.biz/\" target=\"_blank\">http://www.phoenixbooks.biz/</a><br>\n49.7 miles"
+    },
+    {
+        "lat": 44.7081604,
+        "lng": -73.4679869,
+        "marker_title": "Lake City Books and Writers Nook",
+        "city": "Plattsburgh",
+        "state": "NY",
+        "distance": 51.8,
+        "infowindow": "<strong>Lake City Books and Writers Nook</strong><br>\n164 Boynton Ave<br>\nPlattsburgh, NY 12901<br>\n51.8 miles"
+    },
+    {
+        "lat": 44.7025675,
+        "lng": -73.4911641,
+        "marker_title": "Bookburgh Books",
+        "city": "Plattsburgh",
+        "state": "NY",
+        "distance": 52.6,
+        "infowindow": "<strong>Bookburgh Books</strong><br>\n60 Smithfield Blvd<br>\nPlattsburgh, NY 12901<br>\n52.6 miles"
+    },
+    {
+        "lat": 44.1953327,
+        "lng": -73.7861876,
+        "marker_title": "The Mountaineer",
+        "city": "Keene Valley",
+        "state": "NY",
+        "distance": 58.5,
+        "infowindow": "<strong>The Mountaineer</strong><br>\n1866 NYS Route 73<br>\nKeene Valley, NY 12943<br>\n <a href=\"https://www.mountaineer.com/\" target=\"_blank\">https://www.mountaineer.com/</a><br>\n58.5 miles"
+    },
+    {
+        "lat": 43.3959443,
+        "lng": -72.6993293,
+        "marker_title": "The Book Nook (VT)",
+        "city": "Ludlow",
+        "state": "VT",
+        "distance": 60.9,
+        "infowindow": "<strong>The Book Nook (VT)</strong><br>\n136 Main St<br>\nLudlow, VT 05149<br>\n <a href=\"http://www.thebooknookvt.com\" target=\"_blank\">http://www.thebooknookvt.com</a><br>\n60.9 miles"
+    },
+    {
+        "lat": 43.4154461,
+        "lng": -71.9862334,
+        "marker_title": "Morgan Hill Bookstore",
+        "city": "New London",
+        "state": "NH",
+        "distance": 67,
+        "infowindow": "<strong>Morgan Hill Bookstore</strong><br>\n253 Main St<br>\nNew London, NH 03257<br>\n <a href=\"http://www.morganhillbookstore.com\" target=\"_blank\">http://www.morganhillbookstore.com</a><br>\n67 miles"
+    },
+    {
+        "lat": 43.7126985,
+        "lng": -71.4914747,
+        "marker_title": "Bayswater Book Company",
+        "city": "Center Harbor",
+        "state": "NH",
+        "distance": 67.8,
+        "infowindow": "<strong>Bayswater Book Company</strong><br>\nPO Box 1647<br>\nCenter Harbor, NH 03226<br>\n <a href=\"http://www.bayswaterbooks.com/\" target=\"_blank\">http://www.bayswaterbooks.com/</a><br>\n67.8 miles"
+    },
+    {
+        "lat": 44.2884114,
+        "lng": -73.9849507,
+        "marker_title": "The Bookstore Plus Music & Art",
+        "city": "Lake Placid",
+        "state": "NY",
+        "distance": 68,
+        "infowindow": "<strong>The Bookstore Plus Music &amp; Art</strong><br>\n2491 Main St<br>\nLake Placid, NY 12946<br>\n <a href=\"http://www.thebookstoreplus.com\" target=\"_blank\">http://www.thebookstoreplus.com</a><br>\n68 miles"
+    },
+    {
+        "lat": 43.6572743,
+        "lng": -71.4999413,
+        "marker_title": "Innisfree Bookshop",
+        "city": "Meredith",
+        "state": "NH",
+        "distance": 69.8,
+        "infowindow": "<strong>Innisfree Bookshop</strong><br>\n312 Daniel Webster Highway<br>\nMeredith, NH 03253<br>\n <a href=\"https://www.innisfreebookshop.com/\" target=\"_blank\">https://www.innisfreebookshop.com/</a><br>\n69.8 miles"
+    },
+    {
+        "lat": 43.2628476,
+        "lng": -72.5951082,
+        "marker_title": "Blair Books & More",
+        "city": "Chester",
+        "state": "VT",
+        "distance": 69.9,
+        "infowindow": "<strong>Blair Books &amp; More</strong><br>\n58 The Common<br>\nChester, VT 05143<br>\n <a href=\"http://www.blairbooksvt.com/\" target=\"_blank\">http://www.blairbooksvt.com/</a><br>\n69.9 miles"
+    },
+    {
+        "lat": 44.0498063,
+        "lng": -71.1257636,
+        "marker_title": "White Birch Books",
+        "city": "North Conway",
+        "state": "NH",
+        "distance": 75.2,
+        "infowindow": "<strong>White Birch Books</strong><br>\n2568 White Mountain Hwy<br>\nNorth Conway, NH 03860<br>\n <a href=\"http://www.whitebirchbooks.com\" target=\"_blank\">http://www.whitebirchbooks.com</a><br>\n75.2 miles"
+    },
+    {
+        "lat": 44.3271158,
+        "lng": -74.1314443,
+        "marker_title": "The Book Nook (Saranac Lake, NY)",
+        "city": "Saranac Lake",
+        "state": "NY",
+        "distance": 75.3,
+        "infowindow": "<strong>The Book Nook (Saranac Lake, NY)</strong><br>\n7A Broadway<br>\nSaranac Lake, NY 12983<br>\n75.3 miles"
+    },
+    {
+        "lat": 43.4593185,
+        "lng": -73.6930072,
+        "marker_title": "The Book Cabin",
+        "city": "Lake George",
+        "state": "NY",
+        "distance": 78,
+        "infowindow": "<strong>The Book Cabin</strong><br>\n3373 Lake Shore Drive<br>\nLake George, NY 12845<br>\n <a href=\"https://lgbookcabin.com/\" target=\"_blank\">https://lgbookcabin.com/</a><br>\n78 miles"
+    },
+    {
+        "lat": 43.1768182,
+        "lng": -73.0572684,
+        "marker_title": "Northshire Bookstore",
+        "city": "Manchester Center",
+        "state": "VT",
+        "distance": 79.1,
+        "infowindow": "<strong>Northshire Bookstore</strong><br>\n4869 Main St<br>\nManchester Center, VT 05255<br>\n <a href=\"http://www.northshire.com\" target=\"_blank\">http://www.northshire.com</a><br>\n79.1 miles"
+    },
+    {
+        "lat": 43.1340713,
+        "lng": -72.4439329,
+        "marker_title": "Village Square Booksellers",
+        "city": "Bellows Falls",
+        "state": "VT",
+        "distance": 79.3,
+        "infowindow": "<strong>Village Square Booksellers</strong><br>\n32 The Square<br>\nBellows Falls, VT 05101<br>\n <a href=\"http://www.villagesquarebooks.com\" target=\"_blank\">http://www.villagesquarebooks.com</a><br>\n79.3 miles"
+    },
+    {
+        "lat": 43.2800468,
+        "lng": -71.8150729,
+        "marker_title": "MainStreet BookEnds of Warner",
+        "city": "Warner",
+        "state": "NH",
+        "distance": 79.4,
+        "infowindow": "<strong>MainStreet BookEnds of Warner</strong><br>\n16 E Main St<br>\n  PO Box 248\nWarner, NH 03278<br>\n <a href=\"http://www.mainstreetbookends.com\" target=\"_blank\">http://www.mainstreetbookends.com</a><br>\n79.4 miles"
+    },
+    {
+        "lat": 43.5847778,
+        "lng": -71.2141477,
+        "marker_title": "The Country Bookseller",
+        "city": "Wolfeboro",
+        "state": "NH",
+        "distance": 84.2,
+        "infowindow": "<strong>The Country Bookseller</strong><br>\n23A N Main St<br>\nWolfeboro, NH 03894<br>\n <a href=\"http://www.thecountrybookseller.com\" target=\"_blank\">http://www.thecountrybookseller.com</a><br>\n84.2 miles"
+    },
+    {
+        "lat": 42.9741873,
+        "lng": -72.5215672,
+        "marker_title": "Antidote Books",
+        "city": "Putney",
+        "state": "VT",
+        "distance": 90,
+        "infowindow": "<strong>Antidote Books</strong><br>\n120 Main Street<br>\nPutney, VT 05346<br>\n90 miles"
+    },
+    {
+        "lat": 43.2020697,
+        "lng": -71.5342821,
+        "marker_title": "Gibson's Bookstore",
+        "city": "Concord",
+        "state": "NH",
+        "distance": 91.5,
+        "infowindow": "<strong>Gibson&#039;s Bookstore</strong><br>\n45 South Main Street<br>\nConcord, NH 03301<br>\n <a href=\"http://www.gibsonsbookstore.com\" target=\"_blank\">http://www.gibsonsbookstore.com</a><br>\n91.5 miles"
+    },
+    {
+        "lat": 42.9307571,
+        "lng": -72.2786378,
+        "marker_title": "The Toadstool Bookshop (Keene)",
+        "city": "Keene",
+        "state": "NH",
+        "distance": 94.3,
+        "infowindow": "<strong>The Toadstool Bookshop (Keene)</strong><br>\n12 Emerald St<br>\nKeene, NH 03431<br>\n <a href=\"http://www.toadbooks.com\" target=\"_blank\">http://www.toadbooks.com</a><br>\n94.3 miles"
+    },
+    {
+        "lat": 43.0281465,
+        "lng": -73.3802869,
+        "marker_title": "Battenkill Books",
+        "city": "Cambridge",
+        "state": "NY",
+        "distance": 94.4,
+        "infowindow": "<strong>Battenkill Books</strong><br>\n15 E. Main St.<br>\nCambridge, NY 12816<br>\n <a href=\"http://www.battenkillbooks.com\" target=\"_blank\">http://www.battenkillbooks.com</a><br>\n94.4 miles"
+    },
+    {
+        "lat": 42.9240537,
+        "lng": -72.2874506,
+        "marker_title": "Bull Moose Keene",
+        "city": "Keene",
+        "state": "NH",
+        "distance": 94.7,
+        "infowindow": "<strong>Bull Moose Keene</strong><br>\nWest St Shopping Plaza<br>\n  401B West St\nKeene, NH 03431<br>\n <a href=\"http://bullmoose.com\" target=\"_blank\">http://bullmoose.com</a><br>\n94.7 miles"
+    },
+    {
+        "lat": 42.9310953,
+        "lng": -72.0726677,
+        "marker_title": "Alran Books",
+        "city": "Harrisville",
+        "state": "NH",
+        "distance": 96.7,
+        "infowindow": "<strong>Alran Books</strong><br>\n9 Townsend Rd<br>\nHarrisville, NH 03450<br>\n <a href=\"http://alranbooks.com/\" target=\"_blank\">http://alranbooks.com/</a><br>\n96.7 miles"
+    },
+    {
+        "lat": 42.8692447,
+        "lng": -72.872271,
+        "marker_title": "Bartleby's Books",
+        "city": "Wilmington",
+        "state": "VT",
+        "distance": 98,
+        "infowindow": "<strong>Bartleby&#039;s Books</strong><br>\n17 W Main Street<br>\nWilmington, VT 05363<br>\n <a href=\"http://www.myvermontbookstore.com/\" target=\"_blank\">http://www.myvermontbookstore.com/</a><br>\n98 miles"
+    },
+    {
+        "lat": 42.8521308,
+        "lng": -72.5588858,
+        "marker_title": "Everyone's Books",
+        "city": "Brattleboro",
+        "state": "VT",
+        "distance": 98.3,
+        "infowindow": "<strong>Everyone&#039;s Books</strong><br>\n25 Elliot St<br>\nBrattleboro, VT 05301<br>\n <a href=\"http://www.everyonesbks.com\" target=\"_blank\">http://www.everyonesbks.com</a><br>\n98.3 miles"
+    },
+    {
+        "lat": 45.5251122,
+        "lng": -73.6040465,
+        "marker_title": "La Petite Drawn & Quarterly",
+        "city": "Montreal",
+        "state": "QC",
+        "distance": 99.2,
+        "infowindow": "<strong>La Petite Drawn &amp; Quarterly</strong><br>\n176 Rue Bernard<br>\nMontreal, QC H2T2K5<br>\n <a href=\"https://mtl.drawnandquarterly.com/webstore\" target=\"_blank\">https://mtl.drawnandquarterly.com/webstore</a><br>\n99.2 miles"
+    },
+    {
+        "lat": 45.5248708,
+        "lng": -73.6047839,
+        "marker_title": "Librairie Drawn & Quarterly",
+        "city": "Montreal",
+        "state": "QC",
+        "distance": 99.2,
+        "infowindow": "<strong>Librairie Drawn &amp; Quarterly</strong><br>\n211 Rue Bernard<br>\nMontreal, QC H2T2K5<br>\n <a href=\"https://mtl.drawnandquarterly.com/\" target=\"_blank\">https://mtl.drawnandquarterly.com/</a><br>\n99.2 miles"
+    },
+    {
+        "lat": 45.4295313,
+        "lng": -73.8260222,
+        "marker_title": "Babar Books",
+        "city": "Pointe-Claire",
+        "state": "QC",
+        "distance": 99.6,
+        "infowindow": "<strong>Babar Books</strong><br>\n46 Rue Ste. Anne #6<br>\nPointe-Claire, QC H9S 4P8<br>\n <a href=\"https://livresbabarbooks.com/\" target=\"_blank\">https://livresbabarbooks.com/</a><br>\n99.6 miles"
+    }],
+    "bookstore_markers": [
+    {
+        "lat": 44.259823,
+        "lng": -72.575158,
+        "marker_title": "Bear Pond Books (Montpelier)",
+        "city": "Montpelier",
+        "state": "VT",
+        "distance": 2,
+        "infowindow": "<strong>Bear Pond Books (Montpelier)</strong><br>\n77 Main St<br>\nMontpelier, VT 05602<br>\n <a href=\"http://www.bearpondbooks.com\" target=\"_blank\">http://www.bearpondbooks.com</a><br>\n2 miles"
+    },
+    {
+        "lat": 44.199463,
+        "lng": -72.504318,
+        "marker_title": "Next Chapter Bookstore",
+        "city": "Barre",
+        "state": "VT",
+        "distance": 7.4,
+        "infowindow": "<strong>Next Chapter Bookstore</strong><br>\n248 North Main St Suite 2<br>\nBarre, VT 05641<br>\n <a href=\"https://nextchapterbooksvt.indielite.org/\" target=\"_blank\">https://nextchapterbooksvt.indielite.org/</a><br>\n7.4 miles"
+    },
+    {
+        "lat": 44.3381599,
+        "lng": -72.7551569,
+        "marker_title": "Bridgeside Books",
+        "city": "Waterbury",
+        "state": "VT",
+        "distance": 8.4,
+        "infowindow": "<strong>Bridgeside Books</strong><br>\n29 Stowe St<br>\nWaterbury, VT 05676<br>\n <a href=\"http://www.bridgesidebooks.com\" target=\"_blank\">http://www.bridgesidebooks.com</a><br>\n8.4 miles"
+    },
+    {
+        "lat": 44.4651631,
+        "lng": -72.6866982,
+        "marker_title": "Bear Pond Books (Stowe)",
+        "city": "Stowe",
+        "state": "VT",
+        "distance": 13.7,
+        "infowindow": "<strong>Bear Pond Books (Stowe)</strong><br>\n38 Main Street<br>\nStowe, VT 05672<br>\n <a href=\"http://www.stowebooks.com/\" target=\"_blank\">http://www.stowebooks.com/</a><br>\n13.7 miles"
+    },
+    {
+        "lat": 44.5040059,
+        "lng": -72.366985,
+        "marker_title": "The Galaxy Bookshop",
+        "city": "Hardwick",
+        "state": "VT",
+        "distance": 19.8,
+        "infowindow": "<strong>The Galaxy Bookshop</strong><br>\n41 S Main St<br>\nHardwick, VT 05843<br>\n <a href=\"http://www.galaxybookshop.com\" target=\"_blank\">http://www.galaxybookshop.com</a><br>\n19.8 miles"
+    },
+    {
+        "lat": 44.6355692,
+        "lng": -72.6792038,
+        "marker_title": "Ebenezer Books",
+        "city": "Johnson",
+        "state": "VT",
+        "distance": 25.2,
+        "infowindow": "<strong>Ebenezer Books</strong><br>\n2 Lower Main W<br>\nJohnson, VT 05655<br>\n25.2 miles"
+    },
+    {
+        "lat": 44.5080973,
+        "lng": -73.0856416,
+        "marker_title": "Phoenix Books (VT)",
+        "city": "Essex Junction",
+        "state": "VT",
+        "distance": 28.5,
+        "infowindow": "<strong>Phoenix Books (VT)</strong><br>\n2 Carmichael St<br>\nEssex Junction, VT 05452<br>\n <a href=\"http://www.phoenixbooks.biz\" target=\"_blank\">http://www.phoenixbooks.biz</a><br>\n28.5 miles"
+    },
+    {
+        "lat": 43.9943895,
+        "lng": -72.1283061,
+        "marker_title": "Star Cat Books",
+        "city": "Bradford",
+        "state": "VT",
+        "distance": 30.7,
+        "infowindow": "<strong>Star Cat Books</strong><br>\n157 Main St, P.O. Box 924<br>\nBradford, VT 05033<br>\n <a href=\"http://starcatbooks.com/\" target=\"_blank\">http://starcatbooks.com/</a><br>\n30.7 miles"
+    },
+    {
+        "lat": 44.4182792,
+        "lng": -72.0154827,
+        "marker_title": "Boxcar & Caboose",
+        "city": "St. Johnsbury",
+        "state": "VT",
+        "distance": 31,
+        "infowindow": "<strong>Boxcar &amp; Caboose</strong><br>\n394 Railroad St Unit 2<br>\nSt. Johnsbury, VT 05819<br>\n <a href=\"http://boxcxarandcaboose.com/\" target=\"_blank\">http://boxcxarandcaboose.com/</a><br>\n31 miles"
+    },
+    {
+        "lat": 44.3810436,
+        "lng": -73.2269734,
+        "marker_title": "The Flying Pig Bookstore",
+        "city": "Shelburne",
+        "state": "VT",
+        "distance": 31.4,
+        "infowindow": "<strong>The Flying Pig Bookstore</strong><br>\n5247 Shelburne Rd Ste 102<br>\nShelburne, VT 05482<br>\n <a href=\"http://www.flyingpigbooks.com\" target=\"_blank\">http://www.flyingpigbooks.com</a><br>\n31.4 miles"
+    },
+    {
+        "lat": 44.478233,
+        "lng": -73.211766,
+        "marker_title": "Phoenix Books Burlington",
+        "city": "Burlington",
+        "state": "VT",
+        "distance": 32.9,
+        "infowindow": "<strong>Phoenix Books Burlington</strong><br>\n191 Bank St<br>\nBurlington, VT 05401<br>\n32.9 miles"
+    },
+    {
+        "lat": 44.4800929,
+        "lng": -73.212601,
+        "marker_title": "Crow Bookshop",
+        "city": "Burlington",
+        "state": "VT",
+        "distance": 33,
+        "infowindow": "<strong>Crow Bookshop</strong><br>\n14 Church St<br>\nBurlington, VT 05401<br>\n <a href=\"http://www.crowbooks.com\" target=\"_blank\">http://www.crowbooks.com</a><br>\n33 miles"
+    },
+    {
+        "lat": 44.0139845,
+        "lng": -73.1685559,
+        "marker_title": "Vermont Book Shop",
+        "city": "Middlebury",
+        "state": "VT",
+        "distance": 33.1,
+        "infowindow": "<strong>Vermont Book Shop</strong><br>\n38 Main St<br>\nMiddlebury, VT 05753<br>\n <a href=\"http://www.vermontbookshop.com\" target=\"_blank\">http://www.vermontbookshop.com</a><br>\n33.1 miles"
+    },
+    {
+        "lat": 44.5343816,
+        "lng": -72.0030797,
+        "marker_title": "Green Mountain Books & Prints",
+        "city": "Lyndonville",
+        "state": "VT",
+        "distance": 34.9,
+        "infowindow": "<strong>Green Mountain Books &amp; Prints</strong><br>\n1055 Broad St<br>\nLyndonville, VT 05851<br>\n <a href=\"http://www.greenmtnbooks.com/\" target=\"_blank\">http://www.greenmtnbooks.com/</a><br>\n34.9 miles"
+    },
+    {
+        "lat": 43.7996171,
+        "lng": -73.0900393,
+        "marker_title": "The Bookstore (VT)",
+        "city": "Brandon",
+        "state": "VT",
+        "distance": 40.6,
+        "infowindow": "<strong>The Bookstore (VT)</strong><br>\n8 Conant Square<br>\nBrandon, VT 05733<br>\n <a href=\"https://thebookstorevt.indielite.org/\" target=\"_blank\">https://thebookstorevt.indielite.org/</a><br>\n40.6 miles"
+    },
+    {
+        "lat": 44.30655,
+        "lng": -71.7732789,
+        "marker_title": "Little Village Toy and Book Shop",
+        "city": "Littleton",
+        "state": "NH",
+        "distance": 41.4,
+        "infowindow": "<strong>Little Village Toy and Book Shop</strong><br>\n81B Main St<br>\nLittleton, NH 03561<br>\n <a href=\"http://www.littlevillagetoy.com/\" target=\"_blank\">http://www.littlevillagetoy.com/</a><br>\n41.4 miles"
+    },
+    {
+        "lat": 43.7134935,
+        "lng": -72.308533,
+        "marker_title": "Norwich Bookstore",
+        "city": "Norwich",
+        "state": "VT",
+        "distance": 41.6,
+        "infowindow": "<strong>Norwich Bookstore</strong><br>\n291 Main St<br>\nNorwich, VT 05055<br>\n <a href=\"http://www.norwichbookstore.com\" target=\"_blank\">http://www.norwichbookstore.com</a><br>\n41.6 miles"
+    },
+    {
+        "lat": 43.7015076,
+        "lng": -72.2899735,
+        "marker_title": "Still North Books & Bar",
+        "city": "Hanover",
+        "state": "NH",
+        "distance": 42.7,
+        "infowindow": "<strong>Still North Books &amp; Bar</strong><br>\n3 Allen Street<br>\nHanover, NH 03755<br>\n <a href=\"https://www.stillnorthbooks.com/\" target=\"_blank\">https://www.stillnorthbooks.com/</a><br>\n42.7 miles"
+    },
+    {
+        "lat": 44.81259,
+        "lng": -73.08335,
+        "marker_title": "The Eloquent Page Bookstore",
+        "city": "St. Albans",
+        "state": "VT",
+        "distance": 43.9,
+        "infowindow": "<strong>The Eloquent Page Bookstore</strong><br>\n70 N. Main Street<br>\nSt. Albans, VT 05478<br>\n <a href=\"https://www.theeloquentpage.com\" target=\"_blank\">https://www.theeloquentpage.com</a><br>\n43.9 miles"
+    },
+    {
+        "lat": 43.6255997,
+        "lng": -72.5175678,
+        "marker_title": "The Yankee Bookshop",
+        "city": "Woodstock",
+        "state": "VT",
+        "distance": 45.1,
+        "infowindow": "<strong>The Yankee Bookshop</strong><br>\n12 Central St<br>\nWoodstock, VT 05091<br>\n <a href=\"http://www.yankeebookshop.com\" target=\"_blank\">http://www.yankeebookshop.com</a><br>\n45.1 miles"
+    },
+    {
+        "lat": 43.60633,
+        "lng": -72.979289,
+        "marker_title": "Phoenix Books Rutland",
+        "city": "Rutland",
+        "state": "VT",
+        "distance": 49.7,
+        "infowindow": "<strong>Phoenix Books Rutland</strong><br>\n2 Center St Ste 1<br>\nRutland, VT 05701<br>\n <a href=\"http://www.phoenixbooks.biz/\" target=\"_blank\">http://www.phoenixbooks.biz/</a><br>\n49.7 miles"
+    },
+    {
+        "lat": 44.7081604,
+        "lng": -73.4679869,
+        "marker_title": "Lake City Books and Writers Nook",
+        "city": "Plattsburgh",
+        "state": "NY",
+        "distance": 51.8,
+        "infowindow": "<strong>Lake City Books and Writers Nook</strong><br>\n164 Boynton Ave<br>\nPlattsburgh, NY 12901<br>\n51.8 miles"
+    },
+    {
+        "lat": 44.7025675,
+        "lng": -73.4911641,
+        "marker_title": "Bookburgh Books",
+        "city": "Plattsburgh",
+        "state": "NY",
+        "distance": 52.6,
+        "infowindow": "<strong>Bookburgh Books</strong><br>\n60 Smithfield Blvd<br>\nPlattsburgh, NY 12901<br>\n52.6 miles"
+    },
+    {
+        "lat": 44.1953327,
+        "lng": -73.7861876,
+        "marker_title": "The Mountaineer",
+        "city": "Keene Valley",
+        "state": "NY",
+        "distance": 58.5,
+        "infowindow": "<strong>The Mountaineer</strong><br>\n1866 NYS Route 73<br>\nKeene Valley, NY 12943<br>\n <a href=\"https://www.mountaineer.com/\" target=\"_blank\">https://www.mountaineer.com/</a><br>\n58.5 miles"
+    },
+    {
+        "lat": 43.3959443,
+        "lng": -72.6993293,
+        "marker_title": "The Book Nook (VT)",
+        "city": "Ludlow",
+        "state": "VT",
+        "distance": 60.9,
+        "infowindow": "<strong>The Book Nook (VT)</strong><br>\n136 Main St<br>\nLudlow, VT 05149<br>\n <a href=\"http://www.thebooknookvt.com\" target=\"_blank\">http://www.thebooknookvt.com</a><br>\n60.9 miles"
+    },
+    {
+        "lat": 43.4154461,
+        "lng": -71.9862334,
+        "marker_title": "Morgan Hill Bookstore",
+        "city": "New London",
+        "state": "NH",
+        "distance": 67,
+        "infowindow": "<strong>Morgan Hill Bookstore</strong><br>\n253 Main St<br>\nNew London, NH 03257<br>\n <a href=\"http://www.morganhillbookstore.com\" target=\"_blank\">http://www.morganhillbookstore.com</a><br>\n67 miles"
+    },
+    {
+        "lat": 43.7126985,
+        "lng": -71.4914747,
+        "marker_title": "Bayswater Book Company",
+        "city": "Center Harbor",
+        "state": "NH",
+        "distance": 67.8,
+        "infowindow": "<strong>Bayswater Book Company</strong><br>\nPO Box 1647<br>\nCenter Harbor, NH 03226<br>\n <a href=\"http://www.bayswaterbooks.com/\" target=\"_blank\">http://www.bayswaterbooks.com/</a><br>\n67.8 miles"
+    },
+    {
+        "lat": 44.2884114,
+        "lng": -73.9849507,
+        "marker_title": "The Bookstore Plus Music & Art",
+        "city": "Lake Placid",
+        "state": "NY",
+        "distance": 68,
+        "infowindow": "<strong>The Bookstore Plus Music &amp; Art</strong><br>\n2491 Main St<br>\nLake Placid, NY 12946<br>\n <a href=\"http://www.thebookstoreplus.com\" target=\"_blank\">http://www.thebookstoreplus.com</a><br>\n68 miles"
+    },
+    {
+        "lat": 43.6572743,
+        "lng": -71.4999413,
+        "marker_title": "Innisfree Bookshop",
+        "city": "Meredith",
+        "state": "NH",
+        "distance": 69.8,
+        "infowindow": "<strong>Innisfree Bookshop</strong><br>\n312 Daniel Webster Highway<br>\nMeredith, NH 03253<br>\n <a href=\"https://www.innisfreebookshop.com/\" target=\"_blank\">https://www.innisfreebookshop.com/</a><br>\n69.8 miles"
+    },
+    {
+        "lat": 43.2628476,
+        "lng": -72.5951082,
+        "marker_title": "Blair Books & More",
+        "city": "Chester",
+        "state": "VT",
+        "distance": 69.9,
+        "infowindow": "<strong>Blair Books &amp; More</strong><br>\n58 The Common<br>\nChester, VT 05143<br>\n <a href=\"http://www.blairbooksvt.com/\" target=\"_blank\">http://www.blairbooksvt.com/</a><br>\n69.9 miles"
+    },
+    {
+        "lat": 44.0498063,
+        "lng": -71.1257636,
+        "marker_title": "White Birch Books",
+        "city": "North Conway",
+        "state": "NH",
+        "distance": 75.2,
+        "infowindow": "<strong>White Birch Books</strong><br>\n2568 White Mountain Hwy<br>\nNorth Conway, NH 03860<br>\n <a href=\"http://www.whitebirchbooks.com\" target=\"_blank\">http://www.whitebirchbooks.com</a><br>\n75.2 miles"
+    },
+    {
+        "lat": 44.3271158,
+        "lng": -74.1314443,
+        "marker_title": "The Book Nook (Saranac Lake, NY)",
+        "city": "Saranac Lake",
+        "state": "NY",
+        "distance": 75.3,
+        "infowindow": "<strong>The Book Nook (Saranac Lake, NY)</strong><br>\n7A Broadway<br>\nSaranac Lake, NY 12983<br>\n75.3 miles"
+    },
+    {
+        "lat": 43.4593185,
+        "lng": -73.6930072,
+        "marker_title": "The Book Cabin",
+        "city": "Lake George",
+        "state": "NY",
+        "distance": 78,
+        "infowindow": "<strong>The Book Cabin</strong><br>\n3373 Lake Shore Drive<br>\nLake George, NY 12845<br>\n <a href=\"https://lgbookcabin.com/\" target=\"_blank\">https://lgbookcabin.com/</a><br>\n78 miles"
+    },
+    {
+        "lat": 43.1768182,
+        "lng": -73.0572684,
+        "marker_title": "Northshire Bookstore",
+        "city": "Manchester Center",
+        "state": "VT",
+        "distance": 79.1,
+        "infowindow": "<strong>Northshire Bookstore</strong><br>\n4869 Main St<br>\nManchester Center, VT 05255<br>\n <a href=\"http://www.northshire.com\" target=\"_blank\">http://www.northshire.com</a><br>\n79.1 miles"
+    },
+    {
+        "lat": 43.1340713,
+        "lng": -72.4439329,
+        "marker_title": "Village Square Booksellers",
+        "city": "Bellows Falls",
+        "state": "VT",
+        "distance": 79.3,
+        "infowindow": "<strong>Village Square Booksellers</strong><br>\n32 The Square<br>\nBellows Falls, VT 05101<br>\n <a href=\"http://www.villagesquarebooks.com\" target=\"_blank\">http://www.villagesquarebooks.com</a><br>\n79.3 miles"
+    },
+    {
+        "lat": 43.2800468,
+        "lng": -71.8150729,
+        "marker_title": "MainStreet BookEnds of Warner",
+        "city": "Warner",
+        "state": "NH",
+        "distance": 79.4,
+        "infowindow": "<strong>MainStreet BookEnds of Warner</strong><br>\n16 E Main St<br>\n  PO Box 248\nWarner, NH 03278<br>\n <a href=\"http://www.mainstreetbookends.com\" target=\"_blank\">http://www.mainstreetbookends.com</a><br>\n79.4 miles"
+    },
+    {
+        "lat": 43.5847778,
+        "lng": -71.2141477,
+        "marker_title": "The Country Bookseller",
+        "city": "Wolfeboro",
+        "state": "NH",
+        "distance": 84.2,
+        "infowindow": "<strong>The Country Bookseller</strong><br>\n23A N Main St<br>\nWolfeboro, NH 03894<br>\n <a href=\"http://www.thecountrybookseller.com\" target=\"_blank\">http://www.thecountrybookseller.com</a><br>\n84.2 miles"
+    },
+    {
+        "lat": 42.9741873,
+        "lng": -72.5215672,
+        "marker_title": "Antidote Books",
+        "city": "Putney",
+        "state": "VT",
+        "distance": 90,
+        "infowindow": "<strong>Antidote Books</strong><br>\n120 Main Street<br>\nPutney, VT 05346<br>\n90 miles"
+    },
+    {
+        "lat": 43.2020697,
+        "lng": -71.5342821,
+        "marker_title": "Gibson's Bookstore",
+        "city": "Concord",
+        "state": "NH",
+        "distance": 91.5,
+        "infowindow": "<strong>Gibson&#039;s Bookstore</strong><br>\n45 South Main Street<br>\nConcord, NH 03301<br>\n <a href=\"http://www.gibsonsbookstore.com\" target=\"_blank\">http://www.gibsonsbookstore.com</a><br>\n91.5 miles"
+    },
+    {
+        "lat": 42.9307571,
+        "lng": -72.2786378,
+        "marker_title": "The Toadstool Bookshop (Keene)",
+        "city": "Keene",
+        "state": "NH",
+        "distance": 94.3,
+        "infowindow": "<strong>The Toadstool Bookshop (Keene)</strong><br>\n12 Emerald St<br>\nKeene, NH 03431<br>\n <a href=\"http://www.toadbooks.com\" target=\"_blank\">http://www.toadbooks.com</a><br>\n94.3 miles"
+    },
+    {
+        "lat": 43.0281465,
+        "lng": -73.3802869,
+        "marker_title": "Battenkill Books",
+        "city": "Cambridge",
+        "state": "NY",
+        "distance": 94.4,
+        "infowindow": "<strong>Battenkill Books</strong><br>\n15 E. Main St.<br>\nCambridge, NY 12816<br>\n <a href=\"http://www.battenkillbooks.com\" target=\"_blank\">http://www.battenkillbooks.com</a><br>\n94.4 miles"
+    },
+    {
+        "lat": 42.9240537,
+        "lng": -72.2874506,
+        "marker_title": "Bull Moose Keene",
+        "city": "Keene",
+        "state": "NH",
+        "distance": 94.7,
+        "infowindow": "<strong>Bull Moose Keene</strong><br>\nWest St Shopping Plaza<br>\n  401B West St\nKeene, NH 03431<br>\n <a href=\"http://bullmoose.com\" target=\"_blank\">http://bullmoose.com</a><br>\n94.7 miles"
+    },
+    {
+        "lat": 42.9310953,
+        "lng": -72.0726677,
+        "marker_title": "Alran Books",
+        "city": "Harrisville",
+        "state": "NH",
+        "distance": 96.7,
+        "infowindow": "<strong>Alran Books</strong><br>\n9 Townsend Rd<br>\nHarrisville, NH 03450<br>\n <a href=\"http://alranbooks.com/\" target=\"_blank\">http://alranbooks.com/</a><br>\n96.7 miles"
+    },
+    {
+        "lat": 42.8692447,
+        "lng": -72.872271,
+        "marker_title": "Bartleby's Books",
+        "city": "Wilmington",
+        "state": "VT",
+        "distance": 98,
+        "infowindow": "<strong>Bartleby&#039;s Books</strong><br>\n17 W Main Street<br>\nWilmington, VT 05363<br>\n <a href=\"http://www.myvermontbookstore.com/\" target=\"_blank\">http://www.myvermontbookstore.com/</a><br>\n98 miles"
+    },
+    {
+        "lat": 42.8521308,
+        "lng": -72.5588858,
+        "marker_title": "Everyone's Books",
+        "city": "Brattleboro",
+        "state": "VT",
+        "distance": 98.3,
+        "infowindow": "<strong>Everyone&#039;s Books</strong><br>\n25 Elliot St<br>\nBrattleboro, VT 05301<br>\n <a href=\"http://www.everyonesbks.com\" target=\"_blank\">http://www.everyonesbks.com</a><br>\n98.3 miles"
+    },
+    {
+        "lat": 45.5251122,
+        "lng": -73.6040465,
+        "marker_title": "La Petite Drawn & Quarterly",
+        "city": "Montreal",
+        "state": "QC",
+        "distance": 99.2,
+        "infowindow": "<strong>La Petite Drawn &amp; Quarterly</strong><br>\n176 Rue Bernard<br>\nMontreal, QC H2T2K5<br>\n <a href=\"https://mtl.drawnandquarterly.com/webstore\" target=\"_blank\">https://mtl.drawnandquarterly.com/webstore</a><br>\n99.2 miles"
+    },
+    {
+        "lat": 45.5248708,
+        "lng": -73.6047839,
+        "marker_title": "Librairie Drawn & Quarterly",
+        "city": "Montreal",
+        "state": "QC",
+        "distance": 99.2,
+        "infowindow": "<strong>Librairie Drawn &amp; Quarterly</strong><br>\n211 Rue Bernard<br>\nMontreal, QC H2T2K5<br>\n <a href=\"https://mtl.drawnandquarterly.com/\" target=\"_blank\">https://mtl.drawnandquarterly.com/</a><br>\n99.2 miles"
+    },
+    {
+        "lat": 45.4295313,
+        "lng": -73.8260222,
+        "marker_title": "Babar Books",
+        "city": "Pointe-Claire",
+        "state": "QC",
+        "distance": 99.6,
+        "infowindow": "<strong>Babar Books</strong><br>\n46 Rue Ste. Anne #6<br>\nPointe-Claire, QC H9S 4P8<br>\n <a href=\"https://livresbabarbooks.com/\" target=\"_blank\">https://livresbabarbooks.com/</a><br>\n99.6 miles"
+    }],
+    "ajaxTrustedUrl":
+    {
+        "form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM": true,
+        "/search/book": true
+    },
+    "user":
+    {
+        "uid": 0,
+        "permissionsHash": "4c34229bad3ae4ad52340f37007e80d16ed53d15642dd58f53da3720a080bc0d"
+    }
+}
