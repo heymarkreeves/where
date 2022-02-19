@@ -23,7 +23,7 @@ Run `python3 bookstores.py`.
 
 ### To Do
 
-* [ ] Walk scores
+* [ ] Walkability scores
 * [ ] Co-op grocery stores https://www.localharvest.org/getmap.jsp?zip=05602
 
 ### Resources
