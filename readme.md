@@ -32,7 +32,7 @@ order by
 
 ### Usage
 
-Use `pip3` to install `bs4`, `json`, `dotenv`, `mysql.connector`, `requests`.
+Use `pip3` to install `bs4`, `json`, `dotenv`, `mysql.connector`, `requests`, `throttler`, `urllib3`.
 
 Database & tables need to be created, with unique indexes across all fields.
 
@@ -58,3 +58,4 @@ Run `python3 bookstores.py`.
 * https://www.walkscore.com/professional/api-sign-up/free
 * Looks more robust for working with results: https://www.geeksforgeeks.org/mysqldb-connection-python/
   * https://stackoverflow.com/a/15423453/1263204
+* https://www.localharvest.org/search.jsp?jmp&scale=8&lat=44.27022&lon=-72.57642
