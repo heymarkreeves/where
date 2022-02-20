@@ -9,20 +9,20 @@ with connection.cursor() as cursor:
     cursor.execute(select_trader_joes_query)
     result = cursor.fetchall()
     for row in result:
-        bookstoresQueryData = {
+        bookstores_query_data = {
             'search_for':row[0],
             'search_radius':'10',
             'op':'Search',
             'form_id':'indie_bookstore_finder_form'
         }
-        bookstoresPage = requests.post(f"https://www.indiebound.org/indie-store-finder?q={row[0]}", bookstoresQueryData)
+        bookstores_page = requests.post(f"https://www.indiebound.org/indie-store-finder?q={row[0]}", bookstores_query_data)
 
-        soup = BeautifulSoup(bookstoresPage.content, 'html.parser')
+        soup = BeautifulSoup(bookstores_page.content, 'html.parser')
 
         # <script type="application/json" data-drupal-selector="drupal-settings-json">
-        bookstoresJson = soup.select_one('script[data-drupal-selector="drupal-settings-json"]').getText()
+        bookstores_json = soup.select_one('script[data-drupal-selector="drupal-settings-json"]').getText()
 
-        bookstores = json.loads(bookstoresJson)
+        bookstores = json.loads(bookstores_json)
 
         if 'visible_markers' not in bookstores.keys():
             pass

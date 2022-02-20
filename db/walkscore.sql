@@ -1,0 +1,23 @@
+CREATE TABLE `walkscore` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `latitude` decimal(20,10) DEFAULT NULL,
+  `longitude` decimal(20,10) DEFAULT NULL,
+  `status` int DEFAULT NULL,
+  `walkscore` int DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `updated` varchar(255) DEFAULT NULL,
+  `logo_url` varchar(255) DEFAULT NULL,
+  `more_info_icon` varchar(255) DEFAULT NULL,
+  `more_info_link` varchar(255) DEFAULT NULL,
+  `ws_link` varchar(255) DEFAULT NULL,
+  `help_link` varchar(255) DEFAULT NULL,
+  `snapped_lat` decimal(20,10) DEFAULT NULL,
+  `snapped_lon` decimal(20,10) DEFAULT NULL,
+  `transit_score` int DEFAULT NULL,
+  `transit_description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `bike_score` int DEFAULT NULL,
+  `bike_description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `created_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique` (`latitude`,`longitude`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

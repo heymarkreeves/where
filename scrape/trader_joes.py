@@ -5,24 +5,24 @@ import requests
 exec(compile(source=open('db.py').read(), filename='db.py', mode='exec'))
 
 # 1. Loop through state links: https://locations.traderjoes.com/
-statesPage = requests.get('https://locations.traderjoes.com/')
+states_page = requests.get('https://locations.traderjoes.com/')
 
-soup = BeautifulSoup(statesPage.content, 'html.parser')
+soup = BeautifulSoup(states_page.content, 'html.parser')
 
 # there are some data attributes here, too, ex: data-galoc
 for state in soup.find_all('a', class_='listitem'):
 
     # 2. Loop through city links
-    citiesPage = requests.get(state['href'])
+    cities_page = requests.get(state['href'])
 
-    soup = BeautifulSoup(citiesPage.content, 'html.parser')
+    soup = BeautifulSoup(cities_page.content, 'html.parser')
 
     for city in soup.find_all('a', class_='listitem'):
 
         # 3. Loop through locations
-        locationsPage = requests.get(city['href'])
+        locations_page = requests.get(city['href'])
 
-        soup = BeautifulSoup(locationsPage.content, 'html.parser')
+        soup = BeautifulSoup(locations_page.content, 'html.parser')
 
         for location in soup.find_all('a', class_='listitem'):
 
