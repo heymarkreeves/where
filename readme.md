@@ -4,7 +4,7 @@
 
 1. Trader Joe&rsquo;s
 2. Indie bookstore(s) within 10 miles
-3. *Co-op grocery store*
+3. *Co-op grocery stores*
 4. Walk Score in vicinity of indie bookstore
 
 ## Reports
