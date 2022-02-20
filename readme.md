@@ -44,7 +44,7 @@ Run `python3 bookstores.py`.
 
 ### To Do
 
-* [ ] Walkability scores
+* [x] Walkability scores *(for select states)*
 * [ ] Co-op grocery stores https://www.localharvest.org/getmap.jsp?zip=05602
 
 ### Resources
